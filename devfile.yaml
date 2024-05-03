@@ -13,6 +13,17 @@ attributes:
         stack: 'nodejs'
 
 components:
+  # - name: vscode-editor
+  #   type: cheEditor
+  #   id: redhat/vscode
+  #   extensions: 
+  #     - redhat.fabric8-analytics
+  #     - redhat.vscode-xml
+  #     - redhat.vscode-yaml
+  #     - oderwat.indent-rainbow
+  #     - sonarsource.sonarlint-vscode
+  #     - mongodb.mongodb-vscode
+  #     - CucumberOpen.cucumber-official"
   - name: tools
     container:
       image: quay.io/devfile/base-developer-image:ubi8-98224a3
@@ -33,17 +44,21 @@ components:
       cpuLimit: 1500m
       cpuRequest: 400m
       mountSources: true
-  - name: vscode-editor
-    type: cheEditor
-    id: redhat/vscode
-    extensions:  # List of VSCode extensions to install
-      - redhat.fabric8-analytics
-      - redhat.vscode-xml
-      - redhat.vscode-yaml
-      - oderwat.indent-rainbow
-      - sonarsource.sonarlint-vscode
-      - mongodb.mongodb-vscode
-      - CucumberOpen.cucumber-official
+  - id: redhat.fabric8-analytics/latest
+    type: chePlugin
+  - id: redhat.vscode-xml/latest
+    type: chePlugin
+  - id: redhat.vscode-yaml/latest
+    type: chePlugin
+  - id: oderwat.indent-rainbow/latest
+    type: chePlugin    
+  - id: sonarsource.sonarlint-vscode/latest
+    type: chePlugin 
+  - id: mongodb.mongodb-vscode/latest
+    type: chePlugin    
+  - id: CucumberOpen.cucumber-official/latest
+    type: chePlugin         
+
 commands:
   - id: setup-git
     exec:

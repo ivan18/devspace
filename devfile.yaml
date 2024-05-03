@@ -44,22 +44,19 @@ components:
       cpuLimit: 1500m
       cpuRequest: 400m
       mountSources: true
-  - id: redhat.fabric8-analytics/latest
-    type: chePlugin
-  - id: redhat.vscode-xml/latest
-    type: chePlugin
-  - id: redhat.vscode-yaml/latest
-    type: chePlugin
-  - id: oderwat.indent-rainbow/latest
-    type: chePlugin    
-  - id: sonarsource.sonarlint-vscode/latest
-    type: chePlugin 
-  - id: mongodb.mongodb-vscode/latest
-    type: chePlugin    
-  - id: CucumberOpen.cucumber-official/latest
-    type: chePlugin         
+      volumes:
+        - name: extensions
+          path: /opt/vscode/extensions      
 
 commands:
+  - id: setup-extensions
+    exec:
+      component: tools
+      commandLine: "code --install-extension redhat.fabric8-analytics && code --install-extension redhat.vscode-xml && code --install-extension redhat.vscode-yaml && code --install-extension oderwat.indent-rainbow && code --install-extension sonarsource.sonarlint-vscode && code --install-extension mongodb.mongodb-vscode && code --install-extension CucumberOpen.cucumber-official"
+      workingDir: /projects
+      group:
+        kind: build
+        isDefault: true
   - id: setup-git
     exec:
       label: setup-git

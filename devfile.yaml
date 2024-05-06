@@ -1,6 +1,6 @@
 schemaVersion: 2.2.2
 metadata:
-  name: test-ui
+  name: sdi-ui
 
 attributes:
   pod-overrides:
@@ -43,10 +43,7 @@ components:
       memoryRequest: 4G
       cpuLimit: 1500m
       cpuRequest: 400m
-      mountSources: true
-      volumes:
-        - name: extensions
-          path: /opt/vscode/extensions      
+      mountSources: true     
 
 commands:
   - id: setup-extensions
@@ -121,6 +118,6 @@ commands:
       group:
         kind: run
         isDefault: false
-events:
-  postStart:
-    - setup-node
+# events:
+#   postStart:
+#     - setup-node

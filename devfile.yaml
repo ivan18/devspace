@@ -11,22 +11,25 @@ attributes:
         devworkspace: 'true'
         app: 'sdi-ui'
         stack: 'nodejs'
-  .vscode/extensions.json: |
-    {
-      "recommendations": [
-        redhat.fabric8-analytics
-        redhat.vscode-xml
-        redhat.vscode-yaml
-        oderwat.indent-rainbow
-        sonarsource.sonarlint-vscode
-        mongodb.mongodb-vscode
-        CucumberOpen.cucumber-official"
-      ]
-    }        
-  .che/che-theia-plugins.yaml: |
-    - id: redhat/java/latest        
+  # .vscode/extensions.json: |
+  #   {
+  #     "recommendations": [
+  #       redhat.fabric8-analytics
+  #       redhat.vscode-xml
+  #       redhat.vscode-yaml
+  #       oderwat.indent-rainbow
+  #       sonarsource.sonarlint-vscode
+  #       mongodb.mongodb-vscode
+  #       CucumberOpen.cucumber-official"
+  #     ]
+  #   }        
+  # .che/che-theia-plugins.yaml: |
+  #   - id: redhat/java/latest        
 
 components:
+  - name: java-plugin
+    plugin:
+      id: redhat/java/latest
   # - name: vscode-editor
   #   type: cheEditor
   #   id: redhat/vscode

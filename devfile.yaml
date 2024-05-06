@@ -23,8 +23,8 @@ attributes:
         CucumberOpen.cucumber-official"
       ]
     }        
-  # .che/che-theia-plugins.yaml: |
-  #   - id: redhat/java/latest        
+  .che/che-theia-plugins.yaml: |
+    - id: redhat/java/latest        
 
 components:
   # - name: vscode-editor

@@ -11,6 +11,20 @@ attributes:
         devworkspace: 'true'
         app: 'sdi-ui'
         stack: 'nodejs'
+  .vscode/extensions.json: |
+    {
+      "recommendations": [
+        redhat.fabric8-analytics
+        redhat.vscode-xml
+        redhat.vscode-yaml
+        oderwat.indent-rainbow
+        sonarsource.sonarlint-vscode
+        mongodb.mongodb-vscode
+        CucumberOpen.cucumber-official"
+      ]
+    }        
+  # .che/che-theia-plugins.yaml: |
+  #   - id: redhat/java/latest        
 
 components:
   # - name: vscode-editor
@@ -46,14 +60,6 @@ components:
       mountSources: true     
 
 commands:
-  - id: setup-extensions
-    exec:
-      component: tools
-      commandLine: "code --install-extension redhat.fabric8-analytics && code --install-extension redhat.vscode-xml && code --install-extension redhat.vscode-yaml && code --install-extension oderwat.indent-rainbow && code --install-extension sonarsource.sonarlint-vscode && code --install-extension mongodb.mongodb-vscode && code --install-extension CucumberOpen.cucumber-official"
-      workingDir: /projects
-      group:
-        kind: build
-        isDefault: true
   - id: setup-git
     exec:
       label: setup-git

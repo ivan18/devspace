@@ -10,37 +10,9 @@ attributes:
       labels:
         devworkspace: 'true'
         app: 'sdi-ui'
-        stack: 'nodejs'
-  # .vscode/extensions.json: |
-  #   {
-  #     "recommendations": [
-  #       redhat.fabric8-analytics
-  #       redhat.vscode-xml
-  #       redhat.vscode-yaml
-  #       oderwat.indent-rainbow
-  #       sonarsource.sonarlint-vscode
-  #       mongodb.mongodb-vscode
-  #       CucumberOpen.cucumber-official"
-  #     ]
-  #   }        
-  # .che/che-theia-plugins.yaml: |
-  #   - id: redhat/java/latest        
+        stack: 'nodejs'     
 
 components:
-  - name: java-plugin
-    plugin:
-      id: redhat/java/latest
-  # - name: vscode-editor
-  #   type: cheEditor
-  #   id: redhat/vscode
-  #   extensions: 
-  #     - redhat.fabric8-analytics
-  #     - redhat.vscode-xml
-  #     - redhat.vscode-yaml
-  #     - oderwat.indent-rainbow
-  #     - sonarsource.sonarlint-vscode
-  #     - mongodb.mongodb-vscode
-  #     - CucumberOpen.cucumber-official"
   - name: tools
     container:
       image: quay.io/devfile/base-developer-image:ubi8-98224a3
@@ -127,6 +99,6 @@ commands:
       group:
         kind: run
         isDefault: false
-# events:
-#   postStart:
-#     - setup-node
+events:
+  postStart:
+    - setup-node
